@@ -1,0 +1,25 @@
+.headermenu {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      button {
+        width: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 14px;
+        margin: 0 5px 0 0;
+        cursor: pointer;
+      }
+      button:hover {
+        color: rgb(59, 59, 77);
+      }
+    }
+  }
+}
