@@ -1,35 +1,50 @@
-import styles from "./App.module.scss"
-import { open, Command } from "@tauri-apps/api/shell"
-import { downloadDir } from "@tauri-apps/api/path"
-import HeaderMenu from "./components/HeaderMenu/HeaderMenu"
-import { message, ask } from "@tauri-apps/api/dialog"
+import { useEffect, useState } from 'react'
+import styles from './App.module.scss'
+import HeaderMenu from './components/HeaderMenu/HeaderMenu'
+
 function App() {
-  async function system() {
-    const pass = prompt("Contraseña de superusuario")
-    const command = new Command("super", [
-      pass,
-      "|",
-      "sudo",
-      "-S",
-      "pacman",
-      "-Syyu",
-    ])
-    command.spawn()
-  }
-  async function msg() {
-    const pass = prompt("Contraseña de superusuario")
+  const [monto, setMonto] = useState(0)
+  const [plazo, setPlazo] = useState(0)
+  const [interes, setInteres] = useState(0)
+
+  useEffect(() => {
+    setInteres()
+  }, [interes])
+
+  const calcularPlazoFijo = (e) => {
+    e.preventDefault()
+    const interesGenerado = monto * 0.0625
+    setInteres(interesGenerado)
   }
   return (
     <div className={styles.App}>
       <HeaderMenu />
-      <ul className={styles.list}>
-        <li>
-          <button onClick={system}>Update</button>
-        </li>
-        <li>
-          <button onClick={msg}>Message</button>
-        </li>
-      </ul>
+      <div className={styles.container}>
+        <div className={styles.title}>Calculador de plazo fijo</div>
+        <form onSubmit={calcularPlazoFijo}>
+          <label htmlFor='monto'>Monto</label>
+          <input
+            id='monto'
+            type='number'
+            onChange={(e) => setMonto(e.target.value)}
+          />
+          {/* <input type='number' onChange={(e) => setPlazo(e.target.value)} /> */}
+          <input
+            className={styles.btnCalcular}
+            type='submit'
+            value='Calcular'
+          />
+          <label htmlFor='Intereses_generados' id='Intereses_generados'>
+            Intereses generados a 30 dias
+          </label>
+          <input
+            type='text'
+            id='Intereses_generados'
+            disabled={true}
+            value={interes}
+          />
+        </form>
+      </div>
     </div>
   )
 }

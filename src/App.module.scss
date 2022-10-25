@@ -2,18 +2,45 @@
   background-color: var(--background);
   height: 100vh;
   padding: 0 0 30px 30px;
-  .list {
-    list-style: none;
-    li {
-      button {
-        width: 250px;
-        height: 40px;
-        margin: 10px 0;
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .title {
+      text-align: center;
+      color: white;
+      font-weight: 500;
+      margin-bottom: 50px;
+      position: absolute;
+      top: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      label {
+        color: white;
+      }
+      input {
+        display: block;
+        width: 400px;
+        margin: 20px 0;
+        height: 35px;
+        text-align: center;
+      }
+      .btnCalcular {
         background-color: transparent;
         color: white;
         font-weight: bold;
         border: 1px solid white;
+        border-radius: 5px;
         cursor: pointer;
+      }
+      .btnCalcular:hover {
+        background-color: rgba(255, 255, 255, 0.192);
       }
     }
   }
