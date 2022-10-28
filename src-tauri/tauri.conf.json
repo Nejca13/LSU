@@ -22,16 +22,6 @@
             "name": "super",
             "cmd": "printf",
             "args": true
-          },
-          {
-            "name": "update",
-            "cmd": "sudo",
-            "args": ["pacman", "-Syyu"]
-          },
-          {
-            "name": "alacritty",
-            "cmd": "alacritty",
-            "args": true
           }
         ],
         "sidecar": true

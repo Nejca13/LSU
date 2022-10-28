@@ -1,7 +1,9 @@
 .headermenu {
-  width: 100%;
   display: flex;
   justify-content: end;
+  position: absolute;
+  top: 0;
+  right: 3px;
   ul {
     list-style: none;
     padding: 0;
